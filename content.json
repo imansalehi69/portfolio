@@ -1,7 +1,11 @@
 {
   "meta": {
     "title": "ایمان صالحی | طراح و توسعه‌دهنده وب، WordPress، SEO و Automation",
-    "description": "پرتفولیوی ایمان صالحی؛ طراحی و توسعه وب‌سایت با WordPress و WooCommerce، سئو، اتوماسیون n8n و دستیارهای هوشمند AI."
+    "description": "پرتفولیوی ایمان صالحی؛ طراحی و توسعه وب‌سایت با WordPress و WooCommerce، سئو، اتوماسیون n8n و دستیارهای هوشمند AI.",
+    "ogimage": "",
+    "favicon": "img/1792333774153-0.png",
+    "favText": "IS",
+    "themeColor": "#050817"
   },
   "theme": {
     "blue": "#2ea7ff",
@@ -27,7 +31,26 @@
       "AI",
       "React"
     ],
-    "photo": "img/1792229945500-0.webp"
+    "photo": "iman.jpg",
+    "cards": [
+      {
+        "title": "Web Development",
+        "sub": "WordPress / WooCommerce"
+      },
+      {
+        "title": "SEO",
+        "sub": "Technical & On-page"
+      },
+      {
+        "title": "Automation",
+        "sub": "n8n / API / Workflow"
+      },
+      {
+        "title": "AI",
+        "sub": "Agents & Smart Systems"
+      }
+    ],
+    "showCards": true
   },
   "about": {
     "checks": [
@@ -208,18 +231,22 @@
   "services": [
     {
       "title": "طراحی و توسعه وب",
+      "icon": "◈",
       "desc": "سایت شرکتی، شخصی، هتل، فروشگاه و سیستم‌های اختصاصی."
     },
     {
       "title": "WooCommerce",
+      "icon": "▣",
       "desc": "فروشگاه، پرداخت، checkout، داشبورد و امکانات اختصاصی."
     },
     {
       "title": "سئو",
+      "icon": "↗",
       "desc": "ساختار فنی، Schema، سرعت و بهینه‌سازی صفحات."
     },
     {
       "title": "AI و اتوماسیون",
+      "icon": "✦",
       "desc": "اتصال API، n8n، Webhook و ساخت جریان‌های هوشمند."
     }
   ],
@@ -269,5 +296,71 @@
     "telegram": "https://t.me/imansl",
     "instagram": "https://instagram.com/iman.salehi_web",
     "phone": "09139369445"
+  },
+  "footer": {
+    "text": "© 2026 Iman Salehi. All rights reserved.",
+    "adminLink": true
+  },
+  "sections": [
+    {
+      "id": "marquee",
+      "on": true,
+      "label": "",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "about",
+      "on": true,
+      "label": "درباره من",
+      "title": "من *ایمان صالحی* هستم",
+      "desc": "طراحی، توسعه و اتوماسیون را کنار هم می‌گذارم تا یک محصول دیجیتال منسجم ساخته شود."
+    },
+    {
+      "id": "skills",
+      "on": true,
+      "label": "مهارت‌ها",
+      "title": "ابزارهایی که با آن‌ها *می‌سازم*",
+      "desc": ""
+    },
+    {
+      "id": "projects",
+      "on": true,
+      "label": "پروژه‌ها",
+      "title": "پروژه‌های *منتخب*",
+      "desc": "مجموعه‌ای از پروژه‌های وب، فروشگاهی، هتلداری، AI و اتوماسیون که بخشی از مسیر حرفه‌ای من را شکل داده‌اند."
+    },
+    {
+      "id": "services",
+      "on": true,
+      "label": "خدمات",
+      "title": "چه کاری می‌توانم *انجام دهم؟*",
+      "desc": ""
+    },
+    {
+      "id": "experience",
+      "on": true,
+      "label": "",
+      "title": "مسیر *کاری*",
+      "desc": ""
+    },
+    {
+      "id": "process",
+      "on": true,
+      "label": "",
+      "title": "فرآیند *همکاری*",
+      "desc": ""
+    },
+    {
+      "id": "contact",
+      "on": true,
+      "label": "تماس",
+      "title": "",
+      "desc": ""
+    }
+  ],
+  "brand": {
+    "mark": "IS",
+    "name": "IMAN SALEHI"
   }
 }
