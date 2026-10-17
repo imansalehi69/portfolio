@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>پنل مدیریت سایت</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--p:#121a33;--l:#243056;--t:#eef2ff;--m:#93a3c7;--a:#4f8bff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:14px/1.7 Vazirmatn,system-ui,sans-serif}
+.top{display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--l);background:var(--p);flex-wrap:wrap;position:sticky;top:0;z-index:5}
+#st{color:var(--m);font-size:12.5px}
+.acts{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap}
+button,.bt{font:inherit;color:var(--t);background:#1a2446;border:1px solid var(--l);border-radius:10px;padding:6px 14px;cursor:pointer;display:inline-block}
+button:hover,.bt:hover{border-color:var(--a)}
+.pri{background:var(--a);border-color:var(--a)}
+.app{display:grid;grid-template-columns:160px minmax(0,1fr) minmax(0,1.1fr);height:calc(100vh - 57px)}
+nav{padding:12px;border-inline-end:1px solid var(--l);display:flex;flex-direction:column;gap:6px;overflow:auto}
+nav button{text-align:right}nav .on{background:var(--a);border-color:var(--a)}
+main{padding:20px;overflow:auto}
+main h2{margin:0 0 16px}
+.f{display:block;margin-bottom:14px}.f>span{display:block;color:var(--m);font-size:12.5px;margin-bottom:4px}
+input,textarea{width:100%;background:#0e1530;color:var(--t);border:1px solid var(--l);border-radius:10px;padding:8px 12px;font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--a);border-color:transparent}
+input[type=color]{height:40px;padding:3px;width:90px}
+.img{display:flex;gap:8px;align-items:center}.img .bt{white-space:nowrap}
+.item{border:1px solid var(--l);border-radius:14px;padding:12px;margin-bottom:12px;background:var(--p)}
+.ih{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.ih button{padding:1px 9px}
+.prev{border-inline-start:1px solid var(--l);display:flex;flex-direction:column;padding:10px;gap:8px;background:#070b18;min-width:0}
+.prev iframe{flex:1;width:100%;margin:0 auto;border:1px solid var(--l);border-radius:12px;background:#000;transition:width .3s}
+dialog{background:var(--p);color:var(--t);border:1px solid var(--l);border-radius:16px;width:min(440px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.stp{padding-inline-start:18px}.stp li{margin-bottom:14px}.stp input{margin-top:6px}dialog small{color:var(--m);display:block;margin-bottom:12px}
+@media(max-width:1000px){.app{grid-template-columns:1fr;height:auto}nav{flex-direction:row;flex-wrap:wrap;border:0}.prev iframe{height:75vh;flex:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <b>پنل مدیریت سایت</b><span id="st">در حال بارگذاری…</span>
+  <div class="acts">
+    <button class="pri" id="bPub">انتشار روی سایت</button>
+    <button id="bDl">دانلود JSON</button>
+    <label class="bt">ورود JSON<input type="file" id="fImp" accept=".json" hidden></label>
+    <button id="bCfg">اتصال به گیت‌هاب</button>
+    <button id="bRst">بازگشت به نسخه منتشرشده</button>
+  </div>
+</header>
+<div class="app">
+  <nav id="nav"></nav>
+  <main id="form"></main>
+  <aside class="prev">
+    <div><button data-w="100%">دسکتاپ</button> <button data-w="390px">موبایل</button></div>
+    <iframe id="fr" src="index.html#preview" title="پیش‌نمایش زنده"></iframe>
+  </aside>
+</div>
+<dialog id="dlg"><form method="dialog">
+  <h3>اتصال به گیت‌هاب (فقط یک بار)</h3>
+  <ol class="stp">
+    <li>روی دکمه بزن تا صفحه ساخت توکن باز شود. پایین صفحه <b>Generate token</b> را بزن و توکن را کپی کن.<br><a class="bt" href="https://github.com/settings/tokens/new?scopes=repo&description=Site%20Admin" target="_blank" rel="noopener">ساخت توکن ↗</a></li>
+    <li>توکن را اینجا بچسبان:<input id="gTok" type="password" autocomplete="off" placeholder="ghp_…"></li>
+    <li>آدرس ریپوی سایت را بچسبان:<input id="gRepo" placeholder="github.com/username/repo"></li>
+  </ol>
+  <label><input type="checkbox" id="gRem" checked style="width:auto"> این دستگاه را به خاطر بسپار</label>
+  <details><summary>تنظیمات پیشرفته (معمولاً لازم نیست)</summary>
+    <label class="f"><span>برنچ (خالی = خودکار)</span><input id="gBr"></label>
+    <label class="f"><span>پوشه فایل‌ها در ریپو (خالی = خودکار)</span><input id="gDir" placeholder="مثلاً public/"></label>
+  </details>
+  <div id="gMsg" style="min-height:1.6em;margin:10px 0"></div>
+  <button class="pri" id="gSave">تست و ذخیره</button> <button value="x">بستن</button> <button id="gOut" type="button">قطع اتصال</button>
+</form></dialog>
+
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const g=(o,p)=>p.split('.').reduce((a,k)=>a&&a[k],o);
+const sv=(o,p,v)=>{const k=p.split('.'),l=k.pop();let a=o;k.forEach(x=>a=a[x]);a[l]=v};
+const mg=(a,b)=>{if(!b||typeof b!=='object'||Array.isArray(b))return b===undefined?a:b;const o={...a};for(const k in b)o[k]=(a&&a[k]&&typeof a[k]==='object'&&!Array.isArray(a[k]))?mg(a[k],b[k]):b[k];return o};
+const clone=o=>JSON.parse(JSON.stringify(o));
+const fr=$('#fr');let st=null,base=null,cur='meta',dirty=false,tm,busy=false,REG=[];
+
+/* ---------- schema: هر بخش و فیلدهایش ---------- */
+// [مسیر, برچسب, نوع]  نوع: t متن، a متن بلند، c رنگ، L چند خطی (آرایه)، i تصویر، list لیست
+const S=[
+{id:'meta',t:'سئو و رنگ‌ها',f:[['meta.title','عنوان صفحه (Title)','t'],['meta.description','توضیح متا (Description)','a'],['theme.blue','رنگ اصلی ۱','c'],['theme.purple','رنگ اصلی ۲','c'],['theme.pink','رنگ تأکیدی','c']]},
+{id:'hero',t:'بخش اصلی',f:[['hero.badge','نشان بالای نام','t'],['hero.first','نام','t'],['hero.last','نام خانوادگی','t'],['hero.roles','عنوان‌های چرخان (هر خط یکی)','L'],['hero.copy','متن معرفی','a'],['hero.tags','تگ‌ها (هر خط یکی)','L'],['hero.photo','عکس پرتره','i']]},
+{id:'about',t:'درباره من',f:[['about.checks','نکات کلیدی (هر خط یکی)','L'],['about.title','تیتر','t'],['about.text','متن','a'],['about.stats','آمارها','list',[['n','عدد (مثل +5)','t'],['l','عنوان','t']]]]},
+{id:'skills',t:'مهارت‌ها',f:[['skills','مهارت‌ها','list',[['name','نام','t'],['icon','آیکون / نماد','t'],['desc','توضیح کوتاه','t']]]]},
+{id:'projects',t:'پروژه‌ها',f:[['projects','پروژه‌ها','list',[['title','عنوان','t'],['desc','توضیح','a'],['cats','دسته‌ها (با فاصله): web commerce ai hotel seo','t'],['tags','تگ‌ها (هر خط یکی)','L'],['url','لینک پروژه (خالی = Case Study)','t'],['img','تصویر کاور','i']]]]},
+{id:'services',t:'خدمات',f:[['services','خدمات','list',[['title','عنوان','t'],['desc','توضیح','a']]]]},
+{id:'timeline',t:'مسیر کاری',f:[['timeline','مراحل','list',[['when','زمان / برچسب','t'],['title','عنوان','t'],['desc','توضیح','a']]]]},
+{id:'process',t:'فرآیند همکاری',f:[['process','مراحل','list',[['title','عنوان','t'],['desc','توضیح','a']]]]},
+{id:'contact',t:'تماس',f:[['contact.title','تیتر','t'],['contact.text','متن','a'],['contact.telegram','لینک تلگرام','t'],['contact.instagram','لینک اینستاگرام','t'],['contact.phone','شماره تلفن (خالی = مخفی)','t']]}
+];
+const blank=fs=>Object.fromEntries(fs.map(f=>[f[0],f[2]==='L'?[]:'']));
+
+/* ---------- ساخت فرم ---------- */
+function fh(f,pre){
+  const p=pre?pre+'.'+f[0]:f[0],ty=f[2],v=g(st,p),L=`<span>${f[1]}</span>`;
+  if(ty==='list'){const r=REG.push(f[3])-1,a=v||[];
+    return `<div class="f"><span>${f[1]}</span>`+a.map((it,i)=>`<div class="item"><div class="ih"><b>${i+1}. ${esc(it[f[3][0][0]]||'—')}</b><span>${[['up','↑'],['dn','↓'],['del','✕']].map(x=>`<button data-a="${x[0]}" data-p="${p}" data-i="${i}">${x[1]}</button>`).join('')}</span></div>${f[3].map(s=>fh(s,p+'.'+i)).join('')}</div>`).join('')+`<button data-a="add" data-p="${p}" data-r="${r}">+ افزودن</button></div>`}
+  if(ty==='a')return `<div class="f">${L}<textarea data-p="${p}" rows="3">${esc(v)}</textarea></div>`;
+  if(ty==='L')return `<div class="f">${L}<textarea data-p="${p}" data-l="1" rows="4">${esc((v||[]).join('\n'))}</textarea></div>`;
+  if(ty==='c')return `<div class="f">${L}<input type="color" data-p="${p}" value="${esc(v)}"></div>`;
+  if(ty==='i'){const d=String(v||'').startsWith('data:');
+    return `<div class="f">${L}<div class="img"><input ${d?'readonly value="[فایل جدید — هنگام انتشار آپلود می‌شود]"':`data-p="${p}" value="${esc(v)}" placeholder="img/photo.webp یا آدرس کامل"`}><label class="bt">انتخاب فایل<input type="file" accept="image/*" data-f="${p}" hidden></label></div></div>`}
+  return `<div class="f">${L}<input data-p="${p}" value="${esc(v)}"></div>`;
+}
+function show(){
+  REG=[];const sec=S.find(x=>x.id===cur),y=$('#form').scrollTop;
+  $('#form').innerHTML=`<h2>${sec.t}</h2>`+sec.f.map(f=>fh(f,'')).join('');
+  $('#form').scrollTop=y;
+  $('#nav').innerHTML=S.map(x=>`<button data-s="${x.id}" class="${x.id===cur?'on':''}">${x.t}</button>`).join('');
+}
+const setS=t=>$('#st').textContent=t;
+const push=()=>fr.contentWindow.postMessage({type:'apply',content:st},'*');
+function ch(){dirty=true;setS('تغییرات منتشرنشده');try{localStorage.setItem('draft',JSON.stringify(st))}catch{}clearTimeout(tm);tm=setTimeout(push,120)}
+
+/* ---------- رویدادها ---------- */
+$('#nav').onclick=e=>{const b=e.target.closest('[data-s]');if(b){cur=b.dataset.s;$('#form').scrollTop=0;show()}};
+$('#form').addEventListener('input',e=>{const t=e.target,p=t.dataset.p;if(!p)return;
+  sv(st,p,t.dataset.l?t.value.split('\n').map(x=>x.trim()).filter(Boolean):t.value);ch()});
+$('#form').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;
+  const a=b.dataset.a,arr=g(st,b.dataset.p),i=+b.dataset.i;
+  if(a==='add')arr.push(blank(REG[+b.dataset.r]));
+  else if(a==='del'){if(!confirm('این مورد حذف شود؟'))return;arr.splice(i,1)}
+  else{const j=a==='up'?i-1:i+1;if(j<0||j>=arr.length)return;[arr[i],arr[j]]=[arr[j],arr[i]]}
+  ch();show()});
+$('#form').addEventListener('change',e=>{const t=e.target,p=t.dataset.f;if(!p||!t.files[0])return;
+  const im=new Image();im.onload=()=>{const k=Math.min(1,1400/Math.max(im.width,im.height)),c=document.createElement('canvas');
+    c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+    sv(st,p,c.toDataURL('image/webp',.85));ch();show()};im.src=URL.createObjectURL(t.files[0])});
+document.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>fr.style.width=b.dataset.w);
+addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+
+/* ---------- اتصال به iframe ---------- */
+addEventListener('message',async e=>{
+  if(e.source!==fr.contentWindow||!e.data||e.data.type!=='ready')return;
+  if(st){push();return}if(busy)return;busy=true;
+  let b=e.data.content;try{const r=await fetch('content.json',{cache:'no-store'});if(r.ok)b=mg(b,await r.json())}catch{}
+  base=clone(b);let d=null;try{d=JSON.parse(localStorage.getItem('draft'))}catch{}
+  st=d?mg(b,d):clone(b);dirty=!!d;setS(d?'پیش‌نویس ذخیره‌شده بازیابی شد':'آماده ویرایش');show();push();if(!cfg().tok&&!sessionStorage.getItem('wz')){sessionStorage.setItem('wz','1');$('#bCfg').click()}});
+fr.onload=()=>fr.contentWindow.postMessage({type:'hello'},'*');
+
+/* ---------- خروجی / ورودی ---------- */
+$('#bDl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(st,null,2)],{type:'application/json'}));a.download='content.json';a.click()};
+$('#fImp').onchange=async e=>{try{st=mg(base,JSON.parse(await e.target.files[0].text()));ch();show();push();setS('فایل وارد شد')}catch{alert('فایل JSON معتبر نیست')}};
+$('#bRst').onclick=()=>{if(!confirm('همه تغییرات منتشرنشده پاک شود؟'))return;localStorage.removeItem('draft');st=clone(base);dirty=false;show();push();setS('بازگشت به نسخه منتشرشده')};
+
+/* ---------- انتشار روی GitHub ---------- */
+const cfg=()=>{let c={};try{c=JSON.parse(localStorage.getItem('gh'))||{}}catch{}return{repo:c.repo||'',br:c.br||'',dir:c.dir||'',tok:localStorage.getItem('ghtok')||sessionStorage.getItem('ghtok')||''}};
+const badge=()=>{const c=cfg();$('#bCfg').textContent=c.repo&&c.tok?'✓ متصل: '+c.repo:'اتصال به گیت‌هاب'};
+const wmsg=(t,ok)=>{const m=$('#gMsg');m.textContent=t;m.style.color=ok?'#33e08a':'#ff8a8a'};
+$('#bCfg').onclick=()=>{const c=cfg();$('#gRepo').value=c.repo;$('#gBr').value=c.br;$('#gDir').value=c.dir;$('#gTok').value=c.tok;wmsg('',1);$('#dlg').showModal()};
+$('#gOut').onclick=()=>{['gh'].forEach(k=>localStorage.removeItem(k));localStorage.removeItem('ghtok');sessionStorage.removeItem('ghtok');badge();wmsg('اتصال قطع شد',1)};
+$('#gSave').onclick=async e=>{e.preventDefault();
+  const repo=$('#gRepo').value.trim().replace(/^https?:\/\/(www\.)?github\.com\//,'').replace(/\.git$/,'').split('/').slice(0,2).join('/'),tok=$('#gTok').value.trim();
+  if(!/^[^/\s]+\/[^/\s]+$/.test(repo)||!tok)return wmsg('توکن و آدرس ریپو را وارد کن',0);
+  wmsg('در حال بررسی…',1);const h={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+  try{
+    const r=await fetch('https://api.github.com/repos/'+repo,{headers:h});
+    if(r.status===401)return wmsg('توکن اشتباه یا منقضی است',0);
+    if(!r.ok)return wmsg('ریپو پیدا نشد یا توکن به آن دسترسی ندارد',0);
+    const j=await r.json();if(!j.permissions||!j.permissions.push)return wmsg('این توکن اجازه نوشتن روی ریپو را ندارد',0);
+    const br=$('#gBr').value.trim()||j.default_branch;let dir=$('#gDir').value.trim();
+    if(!dir)for(const d of ['','public/','docs/','site/','src/']){const x=await fetch(`https://api.github.com/repos/${repo}/contents/${d}content.json?ref=${br}`,{headers:h});if(x.ok){dir=d;break}}
+    localStorage.setItem('gh',JSON.stringify({repo,br,dir}));
+    localStorage.removeItem('ghtok');sessionStorage.removeItem('ghtok');($('#gRem').checked?localStorage:sessionStorage).setItem('ghtok',tok);
+    badge();wmsg('وصل شد ✓ برنچ: '+br+(dir?' — پوشه: '+dir:''),1);setTimeout(()=>$('#dlg').close(),1200);
+  }catch{wmsg('ارتباط با گیت‌هاب برقرار نشد',0)}};
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();$('#bPub').click()}});
+badge();
+async function put(c,p,b64,m){
+  const u=`https://api.github.com/repos/${c.repo}/contents/${c.dir}${p}`,h={Authorization:'Bearer '+c.tok,Accept:'application/vnd.github+json'};
+  const r=await fetch(u+'?ref='+c.br,{headers:h}),sha=r.ok?(await r.json()).sha:undefined;
+  const w=await fetch(u,{method:'PUT',headers:h,body:JSON.stringify({message:m,content:b64,branch:c.br,sha})});
+  if(!w.ok)throw new Error((await w.json()).message||w.status)}
+$('#bPub').onclick=async()=>{
+  const c=cfg();if(!c.repo||!c.tok){$('#bCfg').click();return}
+  setS('در حال انتشار…');const out=clone(st),ups=[];
+  (function w(o){for(const k in o){const v=o[k];if(typeof v==='string'&&v.startsWith('data:image')){const n=`img/${Date.now()}-${ups.length}.${v.match(/^data:image\/(\w+)/)[1]}`;ups.push([n,v]);o[k]=n}else if(v&&typeof v==='object')w(v)}})(out);
+  try{
+    for(const [n,v] of ups)await put(c,n,v.split(',')[1],'Add image via admin');
+    await put(c,'content.json',btoa(unescape(encodeURIComponent(JSON.stringify(out,null,2)))),'Update content via admin');
+    st=out;base=clone(out);localStorage.removeItem('draft');dirty=false;show();push();
+    setS('منتشر شد ✓ — بعد از دیپلوی خودکار روی سایت اعمال می‌شود');
+  }catch(e){setS('خطا: '+String(e.message).slice(0,140))}};
+</script>
+</body>
+</html>
