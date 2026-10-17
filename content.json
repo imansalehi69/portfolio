@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "ایمان صالحی | طراح و توسعه‌دهنده وب، WordPress، SEO و Automation",
+    "description": "پرتفولیوی ایمان صالحی؛ طراحی و توسعه وب‌سایت با WordPress و WooCommerce، سئو، اتوماسیون n8n و دستیارهای هوشمند AI."
+  },
+  "theme": {
+    "blue": "#2ea7ff",
+    "purple": "#9b4dff",
+    "pink": "#ff3ec9"
+  },
+  "hero": {
+    "badge": "آماده همکاری در پروژه‌های جدید",
+    "first": "ایمان",
+    "last": "صالحی",
+    "roles": [
+      "طراح و توسعه‌دهنده وب",
+      "متخصص WordPress و WooCommerce",
+      "مشاور سئو فنی",
+      "سازنده اتوماسیون و AI Agent"
+    ],
+    "copy": "وب‌سایت‌هایی می‌سازم که فقط زیبا نیستند؛ سریع، قابل توسعه و متناسب با هدف واقعی کسب‌وکار طراحی می‌شوند.",
+    "tags": [
+      "WordPress",
+      "WooCommerce",
+      "SEO",
+      "Automation",
+      "AI",
+      "React"
+    ],
+    "photo": "img/1792229832679-0.webp"
+  },
+  "about": {
+    "checks": [
+      "طراحی رابط کاربری با تمرکز بر تبدیل بازدیدکننده به مشتری",
+      "توسعه اختصاصی قالب و پلاگین در WordPress و WooCommerce",
+      "سئو فنی، Schema و بهینه‌سازی سرعت از همان ابتدا",
+      "اتصال AI و n8n برای خودکار کردن کارهای تکراری"
+    ],
+    "title": "ساخت وب‌سایت‌هایی فراتر از یک ظاهر زیبا.",
+    "text": "تمرکز من روی WordPress، WooCommerce، طراحی رابط کاربری، SEO، اتوماسیون و اتصال سرویس‌های هوش مصنوعی است؛ از طراحی اولیه تا توسعه، بهینه‌سازی و نگهداری.",
+    "stats": [
+      {
+        "n": "+5",
+        "l": "سال تجربه"
+      },
+      {
+        "n": "+50",
+        "l": "پروژه و تجربه اجرایی"
+      },
+      {
+        "n": "9",
+        "l": "پروژه منتخب در این صفحه"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "icon": "◈",
+      "name": "WordPress",
+      "desc": "Theme / Plugin / Custom"
+    },
+    {
+      "icon": "◉",
+      "name": "Elementor",
+      "desc": "UI / Landing / Widgets"
+    },
+    {
+      "icon": "▣",
+      "name": "WooCommerce",
+      "desc": "Store / Checkout / Systems"
+    },
+    {
+      "icon": "‹/›",
+      "name": "PHP",
+      "desc": "Custom Backend & WP APIs"
+    },
+    {
+      "icon": "⚛",
+      "name": "React",
+      "desc": "Interactive Interfaces"
+    },
+    {
+      "icon": "↗",
+      "name": "SEO",
+      "desc": "Technical / Content / Schema"
+    },
+    {
+      "icon": "⌁",
+      "name": "n8n",
+      "desc": "Automation / Webhook / API"
+    },
+    {
+      "icon": "✦",
+      "name": "AI",
+      "desc": "Agents / Prompt / Workflows"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Aseman Royal Kish",
+      "desc": "طراحی و توسعه وب‌سایت هتل آسمان رویال کیش با تمرکز بر تجربه کاربری، معرفی خدمات و ساختار حرفه‌ای.",
+      "cats": "web hotel seo",
+      "tags": [
+        "WordPress",
+        "UI/UX",
+        "SEO"
+      ],
+      "url": "https://asemanroyal.com",
+      "img": "asemanroyal.png"
+    },
+    {
+      "title": "دستیار هوشمند اینستاگرام",
+      "desc": "پلتفرم هوشمند مدیریت دایرکت و کامنت اینستاگرام با پاسخ‌گویی AI، اتوماسیون و اتصال سرویس‌ها.",
+      "cats": "ai web",
+      "tags": [
+        "aiodirect.ir",
+        "AI",
+        "n8n"
+      ],
+      "url": "https://aiodirect.ir",
+      "img": ""
+    },
+    {
+      "title": "Aseman Food",
+      "desc": "سایت سفارش آنلاین رستوران و زیرساخت WooCommerce با تجربه کاربری و مدیریت سفارش اختصاصی.",
+      "cats": "commerce web",
+      "tags": [
+        "WooCommerce",
+        "UI/UX",
+        "WordPress"
+      ],
+      "url": "https://asemanfood.com",
+      "img": ""
+    },
+    {
+      "title": "Group Hotels Aseman",
+      "desc": "طراحی و توسعه وب‌سایت و زیرساخت محتوایی برای مجموعه هتل‌های آسمان.",
+      "cats": "hotel web seo",
+      "tags": [
+        "WordPress",
+        "SEO",
+        "UI/UX"
+      ],
+      "url": "https://asemangrouphotels.com",
+      "img": ""
+    },
+    {
+      "title": "Rasava Portfolio",
+      "desc": "پرتفولیوی آژانس و سیستم Case Study با CPT، ACF، گالری و ساختار قابل مدیریت در WordPress.",
+      "cats": "web",
+      "tags": [
+        "ACF",
+        "UI/UX",
+        "WordPress"
+      ],
+      "url": "",
+      "img": ""
+    },
+    {
+      "title": "Aseman Hotel",
+      "desc": "طراحی و توسعه حضور آنلاین هتل آسمان و ساختار صفحات معرفی، اتاق‌ها و خدمات.",
+      "cats": "hotel web seo",
+      "tags": [
+        "WordPress",
+        "Hotel",
+        "SEO"
+      ],
+      "url": "https://asemanhotel.com",
+      "img": ""
+    },
+    {
+      "title": "Setareh Hotel",
+      "desc": "طراحی و توسعه وب‌سایت هتل ستاره با تمرکز بر معرفی هتل و خدمات.",
+      "cats": "hotel web",
+      "tags": [
+        "WordPress",
+        "Hotel",
+        "UI/UX"
+      ],
+      "url": "https://setarehhotel.com",
+      "img": ""
+    },
+    {
+      "title": "Baran Hotel",
+      "desc": "طراحی و توسعه حضور آنلاین هتل باران و ساختار صفحات معرفی و خدمات.",
+      "cats": "hotel web seo",
+      "tags": [
+        "WordPress",
+        "Hotel",
+        "SEO"
+      ],
+      "url": "https://baranhotel.ir",
+      "img": ""
+    },
+    {
+      "title": "AI Hotel Agent",
+      "desc": "ایده و زیرساخت دستیار هوشمند هتل برای پاسخ‌گویی، معرفی خدمات و اتصال به اتوماسیون‌های n8n.",
+      "cats": "ai web",
+      "tags": [
+        "AI",
+        "n8n",
+        "Automation"
+      ],
+      "url": "",
+      "img": ""
+    }
+  ],
+  "services": [
+    {
+      "title": "طراحی و توسعه وب",
+      "desc": "سایت شرکتی، شخصی، هتل، فروشگاه و سیستم‌های اختصاصی."
+    },
+    {
+      "title": "WooCommerce",
+      "desc": "فروشگاه، پرداخت، checkout، داشبورد و امکانات اختصاصی."
+    },
+    {
+      "title": "سئو",
+      "desc": "ساختار فنی، Schema، سرعت و بهینه‌سازی صفحات."
+    },
+    {
+      "title": "AI و اتوماسیون",
+      "desc": "اتصال API، n8n، Webhook و ساخت جریان‌های هوشمند."
+    }
+  ],
+  "timeline": [
+    {
+      "when": "اکنون",
+      "title": "طراح و توسعه‌دهنده وب / فریلنسر",
+      "desc": "توسعه پروژه‌های WordPress، WooCommerce، SEO، AI و Automation."
+    },
+    {
+      "when": "پروژه‌های هتلداری",
+      "title": "توسعه وب‌سایت‌های مجموعه آسمان",
+      "desc": "طراحی و توسعه پروژه‌های وب برای هتل‌ها و مجموعه‌های گردشگری."
+    },
+    {
+      "when": "فروشگاه‌های آنلاین",
+      "title": "WooCommerce و سیستم‌های اختصاصی",
+      "desc": "ساخت فروشگاه، داشبورد، پرداخت و امکانات اختصاصی."
+    },
+    {
+      "when": "AI / Automation",
+      "title": "n8n + API + AI",
+      "desc": "سیستم‌های اتوماسیون و تجربه‌های هوشمند متصل به WordPress."
+    }
+  ],
+  "process": [
+    {
+      "title": "شناخت",
+      "desc": "بررسی هدف، مخاطب و نیازهای پروژه."
+    },
+    {
+      "title": "طراحی",
+      "desc": "ساختار، تجربه کاربری و ظاهر بصری."
+    },
+    {
+      "title": "توسعه",
+      "desc": "پیاده‌سازی، اتصال سرویس‌ها و تست."
+    },
+    {
+      "title": "تحویل",
+      "desc": "بهینه‌سازی، آموزش و پشتیبانی."
+    }
+  ],
+  "contact": {
+    "title": "ایده‌ای برای ساختن دارید؟",
+    "text": "اگر پروژه‌ای دارید که به طراحی، توسعه WordPress، فروشگاه، سئو یا اتوماسیون نیاز دارد، خوشحال می‌شوم درباره‌اش صحبت کنیم.",
+    "telegram": "https://t.me/imansl",
+    "instagram": "https://instagram.com/iman.salehi_web",
+    "phone": "09139369445"
+  }
+}
