@@ -3,7 +3,7 @@
     "title": "ایمان صالحی | طراح و توسعه‌دهنده وب، WordPress، SEO و Automation",
     "description": "پرتفولیوی ایمان صالحی؛ طراحی و توسعه وب‌سایت با WordPress و WooCommerce، سئو، اتوماسیون n8n و دستیارهای هوشمند AI.",
     "ogimage": "",
-    "favicon": "img/1792333956718-0.png",
+    "favicon": "",
     "favText": "IS",
     "themeColor": "#050817"
   },
@@ -22,7 +22,7 @@
       "مشاور سئو فنی",
       "سازنده اتوماسیون و AI Agent"
     ],
-    "copy": "وب‌سایت‌هایی می‌سازم که فقط زیبا نیستند؛ سریع، قابل توسعه و متناسب با هدف واقعی کسب‌وکار طراحی می‌شوند.",
+    "copy": "وب‌سایت‌هایی که فقط زیبا نیستند؛ سریع، قابل توسعه و متناسب با هدف واقعی کسب‌وکار",
     "tags": [
       "WordPress",
       "WooCommerce",
@@ -35,19 +35,27 @@
     "cards": [
       {
         "title": "Web Development",
-        "sub": "WordPress / WooCommerce"
+        "sub": "WordPress / WooCommerce",
+        "on": true,
+        "mobile": true
       },
       {
         "title": "SEO",
-        "sub": "Technical & On-page"
+        "sub": "Technical & On-page",
+        "on": true,
+        "mobile": true
       },
       {
         "title": "Automation",
-        "sub": "n8n / API / Workflow"
+        "sub": "n8n / API / Workflow",
+        "on": true,
+        "mobile": true
       },
       {
         "title": "AI",
-        "sub": "Agents & Smart Systems"
+        "sub": "Agents & Smart Systems",
+        "on": true,
+        "mobile": true
       }
     ],
     "showCards": true
